@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MovieDirectorApp.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome to Movie App</h2>
+
+<p>
+    <button>@Html.ActionLink("Create New", "Create")</button>
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3> @Html.DisplayFor(modelItem => item.Title)</h3>
+                    <p>@Html.DisplayNameFor(model => model.Director.Name) :  @Html.DisplayFor(modelItem => item.Director.Name)</p>
+                    <button>@Html.ActionLink("Details", "Details", new { id = item.MovieID })</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
