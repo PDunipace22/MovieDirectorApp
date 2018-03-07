@@ -4,32 +4,26 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Directors</h2>
+<h1>Directors</h1>
 
 <p>
     <button>@Html.ActionLink("Create New", "Create")</button>
 </p>
 
-    <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        <button>@Html.ActionLink("Edit", "Edit", new { id = item.DirectorID }) </button>
-                        <button> @Html.ActionLink("Details", "Details", new { id = item.DirectorID }) </button>
-                        <button>@Html.ActionLink("Delete", "Delete", new { id = item.DirectorID })</button>
-</td>
-                </tr>
-            }
-
-        </table>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                    <button>@Html.ActionLink("Edit", "Edit", new { id = item.DirectorID }) </button>
+                    <button>@Html.ActionLink("Delete", "Delete", new { id = item.DirectorID })</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div>
+    <button>@Html.ActionLink("Back to Home", "Index", "Home")</button>
+</div>

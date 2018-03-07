@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Welcome to Movie App</h2>
+<h1>Welcome to Movie App</h1>
 
 <p>
     <button>@Html.ActionLink("Create New", "Create")</button>
@@ -19,8 +19,12 @@
                     <h3> @Html.DisplayFor(modelItem => item.Title)</h3>
                     <p>@Html.DisplayNameFor(model => model.Director.Name) :  @Html.DisplayFor(modelItem => item.Director.Name)</p>
                     <button>@Html.ActionLink("Details", "Details", new { id = item.MovieID })</button>
+                    <button>@Html.ActionLink("Delete", "Delete", new { id = item.MovieID })</button>
                 </div>
             </div>
         </div>
     }
+</div>
+<div>
+    <button>@Html.ActionLink("Back to Home", "Index","Home")</button>
 </div>
